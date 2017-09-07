@@ -1,27 +1,15 @@
-import React from 'react';
+import React from 'React';
 import {Provider} from 'react-redux';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
-import createStore from '../../lib/createStore';
-import Dashboard from '../dashboard';
-
-let store = createStore();
+import {BroswerRouter, Route, Link} from 'react-router-dom';
 
 class App extends React.Component {
   render() {
     return(
-      <span className='auth-lab'>
-        <Provider store={store}>
-          <BrowserRouter>
-            <div>
-            <nav>
-              <ul>
-                <li><Link to='/welcome/signup'>signup</Link></li>
-                <li><Link to='/welcome/login'>login</Link></li>
-              </ul>
-            </nav>
-            <Route path='/welcome/:auth' component={Dashboard}/>
-            </div>
-          </BrowserRouter>
+      <span id="app">
+        <Provider>
+          <BroswerRouter>
+            <Route exact path='/' component={null}/>
+          </BroswerRouter>
         </Provider>
       </span>
     )

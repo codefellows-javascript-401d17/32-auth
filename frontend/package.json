@@ -1,0 +1,20 @@
+{
+  "name": "32-auth",
+  "version": "1.0.0",
+  "description": "![cf](https://i.imgur.com/7v5ASc8.png) 32: Authentication and Authorization ======",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codefellows-javascript-401d17/32-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codefellows-javascript-401d17/32-auth/issues"
+  },
+  "homepage": "https://github.com/codefellows-javascript-401d17/32-auth#readme"
+}

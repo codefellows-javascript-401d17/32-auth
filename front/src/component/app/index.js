@@ -2,6 +2,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import createStore from '../../lib/createStore';
+import Dashboard from '../dashboard';
 
 let store = createStore();
 

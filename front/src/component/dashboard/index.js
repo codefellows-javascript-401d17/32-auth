@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {signupRequest, loginRequest} from '../../action/auth-action.js';
 import * as util from '../../lib/util.js'
+import AuthForm from '../auth-form';
 
 class Dashboard extends React.Component {
   render() {
@@ -13,7 +14,10 @@ class Dashboard extends React.Component {
     : this.props.signup
     return (
       <div>
-
+        <AuthForm
+          onComplete={onComplete}
+          buttonText={'Sign Up'}
+        />
       </div>
     )
   }

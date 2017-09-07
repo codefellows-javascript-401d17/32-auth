@@ -31,6 +31,11 @@ export const loginRequest = user => dispatch => {
   .withCredentials()
   .then(res => {
     dispatch(setToken(res.text));
+    try {
+      localStorage.token = res.text;
+    } catch (err) {
+      console.log(err);
+    }
     return res;
   })
 }

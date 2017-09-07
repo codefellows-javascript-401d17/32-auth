@@ -14,8 +14,8 @@ let plugins = [
   new ExtractPlugin('bundle-[hash].css'),
   new HtmlPlugin({ template: `${__dirname}/src/index.html` }),
   new DefinePlugin({
-      __DEBUG__: JSON.stringify(!production),
-      __API_URL__: JSON.stringify(process.env.API_URL)
+    __DEBUG__: JSON.stringify(!production),
+    __API_URL__: JSON.stringify(process.env.API_URL)
   })
 ]
 
@@ -25,7 +25,7 @@ if(production) {
 
 module.exports = {
   plugins,
-  entry: `${__dirname}`,
+  entry: `${__dirname}.src/main.js`,
   devServer: {
     historyApiFallback: true
   },

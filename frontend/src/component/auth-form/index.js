@@ -30,8 +30,9 @@ class AuthForm extends React.Component {
     })
   }
 
-  handleSubmit({
+  handleSubmit(e) {
     e.preventDefault();
+
     this.props.onComplete(this.state)
     .then(() => {
       this.setState({
@@ -44,7 +45,7 @@ class AuthForm extends React.Component {
       console.error(error);
       this.setState({error});
     })
-  })
+  }
 
   render() {
     return (

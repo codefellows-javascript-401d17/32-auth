@@ -8,7 +8,7 @@ class Landing extends React.Component {
   render() {
     let {params} = this.props.match;
 
-    let handle Complete =
+    let handleComplete =
       params.auth === 'login' ?
       this.props.login : this.props.signup;
 

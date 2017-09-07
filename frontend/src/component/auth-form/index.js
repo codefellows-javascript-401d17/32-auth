@@ -1,18 +1,17 @@
 import React from 'react';
-import util from '../../lib/util.js'
+import * as util from '../../lib/util.js';
 
 class AuthForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       username: '',
       email: '',
       password: '',
       usernameError: null,
-      emailError: null,
       passwordError: null,
-      error: null,
+      emailError: null,
+      error: null
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -20,7 +19,7 @@ class AuthForm extends React.Component {
   }
 
   handleChange(e) {
-    let {name, value} = e.target
+    let {name, value} = e.target;
 
     this.setState({
       [name]: value,
@@ -38,24 +37,24 @@ class AuthForm extends React.Component {
     })
     .catch(error => {
       console.error(error);
-      this.setState({error})
+      this.setState({error});
     })
   }
 
   render() {
-    return {
+    return (
       <form
         onSubmit={this.handleSubmit}
         className='user-form'>
 
-        {util.renderIf(this.props.auth === signup,
+        {util.renderIf(this.props.auth === 'signup',
           <input
             type='text'
             name='email'
-            placeholder='enter email'
+            placeholder='email'
             value={this.state.email}
-            onChange=this.handleChange />
-        )}
+            onChange={this.handleChange} />
+         )}
 
         {util.renderIf(this.state.usernameError,
           <span className='tooltip'>
@@ -66,7 +65,7 @@ class AuthForm extends React.Component {
         <input
           type='text'
           name='username'
-          placeholder='enter username'
+          placeholder='username'
           value={this.state.username}
           onChange={this.handleChange} />
 
@@ -79,14 +78,14 @@ class AuthForm extends React.Component {
         <input
           type='password'
           name='password'
-          placeholder='enter password'
+          placeholder='enter pw'
           value={this.state.password}
           onChange={this.handleChange} />
 
         <button type='submit'>{this.props.auth}</button>
       </form>
-    }
+    )
   }
 }
 
-export default AuthForm
+export default AuthForm;

@@ -6,7 +6,7 @@ import {signupRequest, loginRequest} from '../../action/auth-actions.js'
 
 class LandingContainer extends React.Component {
   render() {
-    let params = this.props.match;
+    let {params} = this.props.match;
 
     let handleComplete = params.auth === 'login'
       ? this.props.login
@@ -29,4 +29,4 @@ let mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default (undefined, mapDispatchToProps) (LandingContainer);
+export default connect(undefined, mapDispatchToProps) (LandingContainer);

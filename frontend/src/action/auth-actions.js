@@ -28,7 +28,7 @@ export const loginRequest = (user) => (dispatch) => {
   return superagent.get(`${__API_URL__}/login`)
   .withCredentials()
   .auth(user.username, user.password)
-  .then( res => {
+  .then(res => {
     dispatch(tokenSet(res.text))
     return res;
   })

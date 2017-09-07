@@ -6,23 +6,23 @@ import LandingContainer from '../landing-container';
 
 let store = appCreateStore();
 
-class App extends react.Component {
+class App extends React.Component {
   render() {
     return(
-      <div className='breweryBeers'>
+      <div className='cfGram'>
         <Provider store={store}>
           <BrowserRouter>
             <section>
               <header>
-                <h1>breweries and their beers</h1>
+                <h1>cfgram</h1>
                 <nav>
                   <ul>
-                    <li><link to='welcome/signup'>signup</link></li>
-                    <li><link to='welcome/login'>login</link></li>
+                    <li><Link to='welcome/signup'>signup</Link></li>
+                    <li><Link to='welcome/login'>login</Link></li>
                   </ul>
                 </nav>
               </header>
-              <Route path='/welcome/:auth' Component={LandingContainer} />
+              <Route path='/welcome/:auth' component={LandingContainer} />
             </section>
           </BrowserRouter>
         </Provider>
@@ -31,4 +31,4 @@ class App extends react.Component {
   }
 }
 
-export default App
+export default App;

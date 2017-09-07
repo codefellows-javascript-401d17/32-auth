@@ -5,3 +5,5 @@ import App from './component/app'
 ReactDOM.render(<App />, document.getElementById('root'), function() {
   console.log('should render');
 })
+
+//asdf

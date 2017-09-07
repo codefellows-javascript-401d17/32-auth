@@ -16,7 +16,7 @@ class AuthForm extends React.Component {
     };
 
     this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   onChange(e) {
@@ -31,7 +31,7 @@ class AuthForm extends React.Component {
       [name]: value,
       usernameError: errorCheck('username'),
       emailError: errorCheck('email'),
-      password: errorCheck('password')
+      passwordError: errorCheck('password')
     });
   }
 
@@ -52,7 +52,6 @@ class AuthForm extends React.Component {
   }
 
   render() {
-    console.log(util);
     return(
       <form onSubmit={this.onSubmit}>
 
@@ -62,10 +61,33 @@ class AuthForm extends React.Component {
             name='email'
             value={this.state.email}
             placeholder='Please enter an email address'
-            required={true}
             onChange={this.onChange}
           />
         )}
+        {util.renderIf(this.state.username,
+          <span>
+            {this.state.usernameError}
+          </span>
+        )}
+        <input
+          type='text'
+          name='username'
+          value={this.state.username}
+          placeholder='Please enter a username'
+          onChange={this.onChange}
+        />
+        {util.renderIf(this.state.password,
+          <span>
+            {this.state.passwordError}
+          </span>
+        )}
+        <input
+          type='password'
+          name='password'
+          value={this.state.password}
+          placeholder='Enter a assword'
+          onChange={this.onChange}
+        />
         <button type='submit'>{this.props.buttonText}</button>
       </form>
     )

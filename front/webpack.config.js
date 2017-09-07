@@ -6,6 +6,7 @@ const UglifyPlugin = require('uglifyjs-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const {DefinePlugin, EnvironmentPlugin} = require('webpack');
 
+require('dotenv').config();
 let production = process.env.NODE_ENV === 'production';
 
 let plugins = [

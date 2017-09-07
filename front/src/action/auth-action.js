@@ -27,7 +27,7 @@ export const signupRequest = user => dispatch => {
 
 export const loginRequest = user => dispatch => {
   return superagent.get(`${__API_URL__}/login`)
-  .auth(uers.username, user.password)
+  .auth(user.username, user.password)
   .withCredentials()
   .then(res => {
     dispatch(setToken(res.text));

@@ -22,4 +22,9 @@ describe('Auth Reducer', () => {
     let result = authReducer({}, action);
     expect(result).toBe(action.payload);
   })
+
+  test('TOKEN_DELETE should return null', () => {
+    let result = authReducer(state, {type: 'TOKEN_DELETE'});
+    expect(result).toBe(null);
+  })
 })

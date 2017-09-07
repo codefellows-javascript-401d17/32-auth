@@ -16,7 +16,8 @@ class Dashboard extends React.Component {
       <div>
         <AuthForm
           onComplete={onComplete}
-          buttonText={'Sign Up'}
+          buttonText={params.auth}
+          auth={params.auth}
         />
       </div>
     )

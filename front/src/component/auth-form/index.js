@@ -52,8 +52,20 @@ class AuthForm extends React.Component {
   }
 
   render() {
+    console.log(util);
     return(
       <form onSubmit={this.onSubmit}>
+
+        {util.renderIf(this.props.auth === 'signup',
+          <input
+            type='text'
+            name='email'
+            value={this.state.email}
+            placeholder='Please enter an email address'
+            required={true}
+            onChange={this.onChange}
+          />
+        )}
         <button type='submit'>{this.props.buttonText}</button>
       </form>
     )

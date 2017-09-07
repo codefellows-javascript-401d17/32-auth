@@ -3,6 +3,7 @@ import {Provider} from 'react-redux';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import createStore from '../../lib/create-store.js';
 import Landing from '../landing/landing.js';
+import Dashboard from '../dashboard/dashboard.js';
 
 let store = createStore();
 
@@ -22,6 +23,7 @@ class App extends React.Component {
                 <li><Link to='/welcome/login'>Log In</Link></li>
               </ul>
               <Route exact path='/welcome/:auth' component={Landing} />
+              <Route exact path='/dashboard' component={Dashboard} />
             </section>
           </BrowserRouter>
         </Provider>

@@ -25,7 +25,7 @@ if(production) {
 
 module.exports = {
   plugins,
-  entry: `${__dirname}.src/main.js`,
+  entry: `${__dirname}/src/main.js`,
   devServer: {
     historyApiFallback: true
   },

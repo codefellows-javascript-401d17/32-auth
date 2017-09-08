@@ -5,7 +5,7 @@ export default (state=null, action) => {
       return payload
     case 'TOKEN_DELETE':
       return null
-    case default:
+    default:
       return state
   }
 }

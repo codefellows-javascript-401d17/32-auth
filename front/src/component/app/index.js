@@ -13,7 +13,15 @@ class App extends React.Component {
       <span id="app">
         <Provider store={store}>
           <BrowserRouter>
-            <Route path='/' component={Dashboard} />
+            <section>
+              <nav>
+                <ul>
+                  <li><Link to='/welcome/signup'>signup</Link></li>
+                  <li><Link to='/welcome/login'>login</Link></li>
+                </ul>
+              </nav>
+              <Route path='/welcome/:auth' component={Dashboard} />
+            </section>
           </BrowserRouter>
         </Provider>
       </span>

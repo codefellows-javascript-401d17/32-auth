@@ -19,15 +19,31 @@ class AuthForm extends React.Component {
   }
 
   onChange(e) {
+    let {name, value} = e.target;
+
+    function errorCheck(errorName) {
+      return name === errorName && !value ? `${errorName} required`: null;
+    }
+
     this.setState({
-      [e.target.name]: e.target.value
+      [name]: value,
+      usernameError: errorCheck('username'),
+      emailError: errorCheck('email'),
+      passwordError: errorCheck('password')
     })
   }
 
   onSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
-    this.props.onComplete(this.state);
+
+    this.props.onComplete(this.state)
+    .then(() => {
+      this.setState({ username: '', email: '', password: ''})
+    })
+    .catch(error => {
+      console.error(error);
+      this.setState({error});
+    })
   }
 
 
@@ -54,6 +70,11 @@ class AuthForm extends React.Component {
           value={this.state.username}
           onChange={this.onChange}
         />
+        {util.renderIf(this.state.usernameError,
+          <span className='tooltip'>
+            {this.state.usernameError}
+          </span>
+        )}
         <input
           name='password'
           type='password'
@@ -61,6 +82,11 @@ class AuthForm extends React.Component {
           value={this.state.password}
           onChange={this.onChange}
         />
+        {util.renderIf(this.state.passwordError,
+          <span className='tooltip'>
+            {this.state.passwordError}
+          </span>
+        )}
         {util.renderIf(this.props.auth === 'signup', emailInput)}
         <button type='submit'>{this.props.buttonText}</button>
       </form>

@@ -3,7 +3,7 @@ import reducer from '../reducer';
 import thunk from './thunk.js';
 import reporter from './reporter.js';
 
-const createAppStore = function() {
+let createAppStore = () => {
   return createStore(reducer, applyMiddleware(thunk, reporter));
 };
 

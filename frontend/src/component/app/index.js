@@ -2,16 +2,22 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import LandingContainer from '../landing-container';
+import DashboardContainer from '../dashboard-container';
 import SettingsContainer from '../settings-container';
 import * as util from '../../lib/util.js';
 import {tokenSet} from '../../action/auth-actions.js';
+import {userProfileFetchRequest} from '../../action/profile-actions.js';
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+  }
   componentDidMount() {
     let token = util.readCookie('X-Sluggram-Token');
     if (token) {
       this.props.tokenSet(token);
     }
+    console.log('DASH', this.state);
   }
 
   render() {
@@ -31,6 +37,8 @@ class App extends React.Component {
               </header>
               <Route exact path='/welcome/:auth' component={LandingContainer} />
               <Route exact path='/settings' component={SettingsContainer} />
+              <Route exact path='/dashboard' component={DashboardContainer} />
+              <Route exact path='/' component={DashboardContainer} />
             </section>
           </BrowserRouter>
       </div>

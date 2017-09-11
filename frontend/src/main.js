@@ -6,7 +6,7 @@ import appStoreCreate from './lib/app-create-store.js';
 import App from './component/app';
 
 let store = appStoreCreate();
-
+console.log('STORE', store.getState());
 let AppContainer = () => {
   return (
     <Provider store={store}>

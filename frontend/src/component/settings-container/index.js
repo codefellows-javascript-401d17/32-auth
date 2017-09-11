@@ -18,8 +18,11 @@ class SettingsContainer extends React.Component {
     .catch(console.error)
   }
 
-  //TODO
-  handleProfileUpdate(){ }
+
+  handleProfileUpdate(profile){
+    return this.props.ProfileUpdate(profile)
+    .catch(console.error)
+  }
 
   render() {
     let handleComplete = this.props.profile
@@ -28,10 +31,10 @@ class SettingsContainer extends React.Component {
 
     return (
       <div className='settings-container'>
-        <h2>Profile Settings:</h2>
+        <h2>Tell us about yourself</h2>
         <ProfileForm
           buttonText='create profile'
-          onComplete={this.handleProfileCreate}
+          onComplete={handleComplete}
         />
       </div>
     )

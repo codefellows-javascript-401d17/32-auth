@@ -18,7 +18,7 @@ class ProfileForm extends React.Component {
     }
   }
 
-  onChange(e) => {
+  onChange(e) {
     let {type, name} = e.target;
     if(name === 'bio') this.setState({bio: e.target.value});
 
@@ -42,8 +42,8 @@ class ProfileForm extends React.Component {
       <form
         onSubmit={this.onSubmit}
         className='profile-form'
-      />
-        <img src={this.src.preview} />
+      >
+        <img src={this.state.preview} />
         <input
           type='file'
           name='avatar'

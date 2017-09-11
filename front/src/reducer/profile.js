@@ -2,7 +2,7 @@ import validate from '../lib/validation.js';
 
 let profileReqs = ['avatar', 'email', 'bio', '_id', 'owner', 'username'];
 
-module.exports = (state, action => {
+module.exports = (state=null, action) => {
   let {type, payload} = action;
 
   switch(type) {
@@ -17,4 +17,4 @@ module.exports = (state, action => {
     default:
       return state;
   }
-})
+}

@@ -9,4 +9,4 @@ module.exports = (state=null, action) => {
     default:
       return state;
   }
-}
+};

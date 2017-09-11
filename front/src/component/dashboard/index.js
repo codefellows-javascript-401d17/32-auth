@@ -13,6 +13,8 @@ class Dashboard extends React.Component {
     this.props.login:
     this.props.signup;
 
+    console.log(this.props.auth);
+
     return(
       <AuthFrom
         onComplete={onComplete}
@@ -22,7 +24,9 @@ class Dashboard extends React.Component {
     )
   }
 };
-
+let mapStoreToState = store => ({
+  auth: store.auth
+})
 let mapDispatchToProps = dispatch => {
   return {
     signup: user => dispatch(authReqs.signupRequest(user)),

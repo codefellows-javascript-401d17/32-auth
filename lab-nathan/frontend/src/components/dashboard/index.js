@@ -12,7 +12,7 @@ class DashboardContainer extends React.Component {
   }
 
   componentDidMount(){
-    this.props.userPhotosFetch()
+    this.props.photosFetch()
     .catch(util.logError)
   }
 
@@ -23,11 +23,11 @@ class DashboardContainer extends React.Component {
         <PhotoForm
           buttonText='post'
           onComplete={(photo) =>{
-            return this.props.userPhotoCreate(photo)
+            return this.props.photoCreate(photo)
             .catch(console.error)
           }}
             />
-        {this.props.userPhotos.map(photo =>
+        {this.props.photos.map(photo =>
           <PhotoItem key={photo._id} photo={photo} />
         )}
       </div>
@@ -36,13 +36,13 @@ class DashboardContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-  userProfile: state.profile,
-  userPhotos: state.photos,
+  profile: state.profile,
+  photos: state.photos,
 })
 
 let mapDispatchToProps = (dispatch) => ({
-  userPhotoCreate: (photo) => dispatch(photoActions.userPhotoCreateRequest(photo)),
-  userPhotosFetch: (photos) => dispatch(photoActions.userPhotosFetchRequest()),
+  photoCreate: (photo) => dispatch(photoActions.userPhotoCreateRequest(photo)),
+  photosFetch: (photos) => dispatch(photoActions.userPhotosFetchRequest()),
 })
 
 export default connect(

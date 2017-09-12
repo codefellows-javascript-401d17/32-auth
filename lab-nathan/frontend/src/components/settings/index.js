@@ -31,8 +31,8 @@ class SettingsContainer extends React.Component {
     return (
       <div className='settings-container'>
         <ProfileForm
-        buttonText='create profile'
-        onComplete={this.handleProfileCreate} />
+          buttonText='create profile'
+          onComplete={this.handleProfileCreate} />
       </div>
     );
   }

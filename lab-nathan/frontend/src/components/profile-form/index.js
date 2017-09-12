@@ -1,3 +1,4 @@
+import './_profile-form.scss';
 import React from 'react';
 import * as util from '../../lib/utilities.js';
 
@@ -56,6 +57,7 @@ class ProfileForm extends React.Component {
         
         <textarea
           name='bio'
+          placeholder='enter a bio'
           value = {this.state.bio}
           onChange={this.handleChange}>
         </textarea>

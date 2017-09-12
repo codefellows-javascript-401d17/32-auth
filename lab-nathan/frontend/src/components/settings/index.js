@@ -1,6 +1,7 @@
+import './_settings.scss';
 import React from 'react';
 import {connect} from 'react-redux';
-import ProfileForm from '../profile-form/profile-form.js';
+import ProfileForm from '../profile-form';
 import {profileCreateRequest} from '../../actions/profile-actions.js';
 
 class SettingsContainer extends React.Component {
@@ -29,10 +30,9 @@ class SettingsContainer extends React.Component {
 
     return (
       <div className='settings-container'>
-        <h2>Profile Settings</h2>
         <ProfileForm
-          buttonText='create profile'
-          onComplete={this.handleProfileCreate} />
+        buttonText='create profile'
+        onComplete={this.handleProfileCreate} />
       </div>
     );
   }

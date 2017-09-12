@@ -5,7 +5,6 @@ import {BrowserRouter, Route, Link} from 'react-router-dom';
 import Landing from '../landing';
 import SettingsContainer from '../settings-container';
 import createAppStore from '../../lib/createAppStore.js';
-import tokenSet from '../../action/profile-action';
 
 let store = createAppStore()
 
@@ -32,13 +31,5 @@ class App extends React.Component {
     )
   }
 }
-
-let mapSateToProps = store => ({
-  profile: store.profile
-});
-
-let mapDispatchToProps = dispatch => ({
-  tokenSet: token => dispatch(tokenSet(token))
-})
 
 export default App;

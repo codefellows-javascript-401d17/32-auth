@@ -10,6 +10,7 @@ export const tokenDelete = () => ({
 });
 
 export const signupRequest = user => dispatch => {
+  console.log('Bullshit')
   return superagent.post(`${__API_URL__}/signup`)
   .withCredentials()
   .send(user)

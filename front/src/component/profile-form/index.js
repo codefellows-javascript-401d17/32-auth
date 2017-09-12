@@ -5,7 +5,7 @@ class ProfileForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.profile ?
-    {...props.profile, bio: ''} :
+    {...this.props.profile, bio: ''} :
     {bio: '', avatar: null, preview: ''}
 
     this.onChange = this.onChange.bind(this);
@@ -13,8 +13,8 @@ class ProfileForm extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    if(props.profile) {
-      this.setState(props.porfile);
+    if(this.props.profile) {
+      this.setState(this.props.profile);
     }
   }
 

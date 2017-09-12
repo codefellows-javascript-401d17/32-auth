@@ -10,6 +10,7 @@ let store = createAppStore()
 
 class App extends React.Component {
   render() {
+
     return(
       <span id="app">
         <Provider store={store}>

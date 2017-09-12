@@ -46,9 +46,6 @@ class AuthForm extends React.Component {
     })
   }
 
-
-
-
   render() {
 
     let emailInput = (

@@ -50,7 +50,12 @@ module.exports = {
         loader: ExtractPlugin.extract(['css-loader', 'sass-loader'])
       },
       {
+        test: /\.(svg)$/,
+        loader: 'raw-loader',
+      },
+      {
         test: /\.(woff|woff2|ttf|eot|glyph|\.svg)$/,
+        exclude: /\camera-icon.svg$/,
         use: [
           {
             loader: 'url-loader',
@@ -63,7 +68,7 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|gif|png|tiff|svg)$/,
-        exclude: /\.glyph.svg/,
+        exclude: /\glyph.svg|camera-icon.svg$/,
         use: [
           {
             loader: 'url-loader',
@@ -76,7 +81,7 @@ module.exports = {
       },
       {
         test: /\.(mp3|aac|aiff|wav|flac|m4a|mp4|ogg|ape)$/,
-        exclude: /\.glyph.svg/,
+        exclude: /\glyph.svg|camera-icon.svg$/,
         use: [
           {
             loader: 'file-loader',

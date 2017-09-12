@@ -1,7 +1,8 @@
+import './_landing.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import {signupRequest, loginRequest} from '../../actions/token-actions.js';
-import Login from '../login/login.js';
+import Login from '../login';
 
 class Landing extends React.Component {
   render() {
@@ -11,7 +12,7 @@ class Landing extends React.Component {
       : this.props.signup;
     
     return (
-      <div>
+      <div className='landing'>
         <Login
           auth={params.auth}
           onComplete={handleComplete} />

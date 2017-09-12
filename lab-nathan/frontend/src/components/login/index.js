@@ -1,3 +1,4 @@
+import './_login.scss';
 import React from 'react';
 import * as utilities from '../../lib/utilities.js';
 
@@ -79,7 +80,7 @@ class Login extends React.Component {
             value={this.state.password}
             onChange={this.handleChange} />
 
-        <button type='submit'>{this.props.auth}</button>
+        <button type='submit'>{this.props.auth === 'signup' ? 'sign up' : 'log in'}</button>
 
       </form>
     );

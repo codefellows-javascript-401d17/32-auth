@@ -1,7 +1,8 @@
+import './styles/main.scss';
 import React from 'react';
 import ReactDom from 'react-dom';
 import {Provider} from 'react-redux';
-import App from './components/app/app.js';
+import App from './components/app';
 import createStore from './lib/create-store.js';
 
 let AppContainer = () => {

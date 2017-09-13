@@ -18,7 +18,8 @@ let plugins = [
   new HtmlPlugin({ template: `${__dirname}/src/index.html` }),
   new DefinePlugin({
     '__DEBUG__': JSON.stringify('development'),
-    '__API_URL__': JSON.stringify(process.env.API_URL)
+    '__API_URL__': JSON.stringify(process.env.API_URL),
+    '__GOOGLE_CLIENT_ID__': JSON.stringify(process.env.GOOGLE_CLIENT_ID)
   })
 ];
 
@@ -55,7 +56,7 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|ttf|eot|glyph|\.svg)$/,
-        exclude: /\camera-icon.svg$/,
+        exclude: /\camera-icon.svg|btn_google_dark_normal_ios.svg$/,
         use: [
           {
             loader: 'url-loader',
@@ -68,7 +69,7 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|gif|png|tiff|svg)$/,
-        exclude: /\glyph.svg|camera-icon.svg$/,
+        exclude: /\glyph.svg|camera-icon.svg|btn_google_dark_normal_ios.svg$/,
         use: [
           {
             loader: 'url-loader',
@@ -81,7 +82,7 @@ module.exports = {
       },
       {
         test: /\.(mp3|aac|aiff|wav|flac|m4a|mp4|ogg|ape)$/,
-        exclude: /\glyph.svg|camera-icon.svg$/,
+        exclude: /\glyph.svg|camera-icon.svg|btn_google_dark_normal_ios.svg$/,
         use: [
           {
             loader: 'file-loader',

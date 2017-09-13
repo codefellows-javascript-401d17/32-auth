@@ -50,21 +50,21 @@ class Header extends React.Component {
         <Logo />           
         {util.renderIf(!this.props.loggedIn,
           <Menu>
-            <MenuItem><Link to='/welcome/signup'>Sign Up</Link></MenuItem>
-            <MenuItem><Link to='/welcome/login'>Log In</Link></MenuItem>
+            <MenuItem><Link to='/welcome/signup'>sign up</Link></MenuItem>
+            <MenuItem><Link to='/welcome/login'>log in</Link></MenuItem>
           </Menu>
         )}
         {util.renderIf(this.props.loggedIn,
           <Menu>
-            <MenuItem><Link to='/dashboard'>Dashboard</Link></MenuItem>
-            <MenuItem><Link to='/settings'>Settings</Link></MenuItem>
+            <MenuItem><Link to='/dashboard'>dashboard</Link></MenuItem>
+            <MenuItem><Link to='/settings'>settings</Link></MenuItem>
           </Menu>
         )}
       {util.renderIf(this.props.profile,
         <Avatar profile={this.props.profile} />
       )}
       {util.renderIf(this.props.loggedIn,
-        <button id='logout-button' onClick={this.handleLogout}>Logout</button>
+        <button id='logout-button' onClick={this.handleLogout}>logout</button>
       )}
       </header>
     );

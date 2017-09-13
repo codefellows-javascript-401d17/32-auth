@@ -1,11 +1,15 @@
 @import '../../styles/lib/vars';
 
-.user-form {
+.photo-form {
   background: url('../../assets/noise.png') #dadada;
-  padding: $gutter * 1.5 $gutter;
+  padding: $gutter;
   margin: auto;
   border-radius: 5px;
   box-shadow: 3px 3px 10px -4px rgba(0, 0, 0, 0.75);
+
+  & img {
+    max-height: 300px;
+  }
 
   & input {
     display: block;
@@ -13,9 +17,8 @@
     padding: $input-padding;
     font-size: $input-font-size;
     border-radius: $input-border-radius;
-    border: $input-border;
   }
-
+ 
   & button {
     margin-top: $gutter / 2;
     padding: $input-padding * 3 / 4 $input-padding * 2;
@@ -26,9 +29,13 @@
     color: white;
   }
 
-  & .separator {
-    height: 1px;
-    background-color: #bbb;
-    margin: $gutter 0;
+  & textarea {
+    display: block;
+    width: 100%;
+    min-height: 100px;
+    font-size: inherit;
+    font-family: helvetica;
+    padding: 10px;
+    box-sizing: border-box;    
   }
 }

@@ -1,3 +1,4 @@
+import './_dashboard.scss';
 import React from 'react'
 import {connect} from 'react-redux'
 import * as util from '../../lib/utilities.js'
@@ -8,18 +9,17 @@ import PhotoItem from '../photo-item'
 
 class DashboardContainer extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
   }
 
   componentDidMount(){
     this.props.photosFetch()
-    .catch(util.logError)
+    .catch(util.logError);
   }
 
   render(){
     return (
-      <div className='dashboard-container'>
-        <h2>dashboard</h2>
+      <div className='dashboard'>
         <PhotoForm
           buttonText='post'
           onComplete={(photo) =>{

@@ -2,7 +2,7 @@ import './_settings.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import ProfileForm from '../profile-form';
-import {profileCreateRequest} from '../../actions/profile-actions.js';
+import {profileCreateRequest, profileUpdateRequest} from '../../actions/profile-actions.js';
 
 class SettingsContainer extends React.Component {
   constructor(props) {
@@ -19,20 +19,26 @@ class SettingsContainer extends React.Component {
     .catch(console.error);
   }
 
-  handleProfileUpdate() {
-    // TODO
+  handleProfileUpdate(profile) {
+    return this.props.profileUpdate(profile)
+    .catch(console.error)
   }
 
   render() {
     let handleComplete = this.props.profile 
-    ? this.handleProfileCreate
-    : this.handleProfileUpdate;
+    ? this.handleProfileUpdate
+    : this.handleProfileCreate;
+
+    let buttonText = this.props.profile 
+    ? 'update profile'
+    : 'create profile';
 
     return (
       <div className='settings-container'>
         <ProfileForm
-          buttonText='create profile'
-          onComplete={this.handleProfileCreate} />
+          profile={this.props.profile}
+          buttonText={buttonText}
+          onComplete={handleComplete} />
       </div>
     );
   }
@@ -43,7 +49,8 @@ let mapStateToProps = (state) => ({
 })
 
 let mapDispatchToProps = (dispatch) => ({
-  profileCreate: (profile) => dispatch(profileCreateRequest(profile))
+  profileCreate: (profile) => dispatch(profileCreateRequest(profile)),
+  profileUpdate: (profile) => dispatch(profileUpdateRequest(profile))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsContainer);

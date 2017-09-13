@@ -23,9 +23,9 @@ export const userPhotoDelete = (photo) => ({
 
 // async actions
 export const userPhotosFetchRequest = () => (dispatch, getState) => {
-  let {auth} = getState()
+  let {token} = getState()
   return superagent.get(`${__API_URL__}/photos/me`)
-  .set('Authorization', `Bearer ${auth}`)
+  .set('Authorization', `Bearer ${token}`)
   .then(res => {
     dispatch(userPhotosSet(res.body.data))
     return res
@@ -33,9 +33,9 @@ export const userPhotosFetchRequest = () => (dispatch, getState) => {
 }
 
 export const userPhotoCreateRequest = (photo) => (dispatch, getState) => {
-  let {auth} = getState()
+  let {token} = getState()
   return superagent.post(`${__API_URL__}/photos`)
-  .set('Authorization', `Bearer ${auth}`)
+  .set('Authorization', `Bearer ${token}`)
   .field('description', photo.description)
   .attach('photo', photo.photo)
   .then((res) => {
@@ -45,9 +45,9 @@ export const userPhotoCreateRequest = (photo) => (dispatch, getState) => {
 }
 
 export const userPhotoDeleteRequest = (photo) => (dispatch, getState) => {
-  let {auth} = getState()
+  let {token} = getState()
   return superagent.delete(`${__API_URL__}/photos/${photo._id}`)
-  .set('Authorization', `Bearer ${auth}`)
+  .set('Authorization', `Bearer ${token}`)
   .then(res => {
     dispatch(userPhotoDelete(photo))
     return res
@@ -55,9 +55,9 @@ export const userPhotoDeleteRequest = (photo) => (dispatch, getState) => {
 }
 
 export const userPhotoUpdateRequest = (photo) => (dispatch, getState) => {
-  let {auth} = getState()
+  let {token} = getState()
   return superagent.put(`${__API_URL__}/photos/${photo._id}`)
-  .set('Authorization', `Bearer ${auth}`)
+  .set('Authorization', `Bearer ${token}`)
   .field('description', photo.description)
   .attach('photo', photo.photo)
   .then(res => {

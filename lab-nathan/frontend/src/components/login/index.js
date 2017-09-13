@@ -1,6 +1,7 @@
 import './_login.scss';
 import React from 'react';
 import * as utilities from '../../lib/utilities.js';
+import GoogleOAuth from '../google-oauth';
 
 class Login extends React.Component {
   constructor(props) {
@@ -82,6 +83,9 @@ class Login extends React.Component {
 
         <button type='submit'>{this.props.auth === 'signup' ? 'sign up' : 'log in'}</button>
 
+        <div className='separator'></div>
+
+        <GoogleOAuth />
       </form>
     );
   }

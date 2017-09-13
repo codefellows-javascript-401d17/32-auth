@@ -13,11 +13,12 @@
 
   & input {
     display: block;
+    margin: $gutter / 3 auto;
     padding: $input-padding;
     font-size: $input-font-size;
     border-radius: $input-border-radius;
   }
-
+  
   & button {
     margin-top: $gutter / 2;
     padding: $input-padding * 3 / 4 $input-padding * 2;

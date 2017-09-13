@@ -1,3 +1,4 @@
+import './_dashboard.scss';
 import React from 'react'
 import {connect} from 'react-redux'
 import * as util from '../../lib/utilities.js'
@@ -8,26 +9,25 @@ import PhotoItem from '../photo-item'
 
 class DashboardContainer extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
   }
 
   componentDidMount(){
-    this.props.userPhotosFetch()
-    .catch(util.logError)
+    this.props.photosFetch()
+    .catch(util.logError);
   }
 
   render(){
     return (
-      <div className='dashboard-container'>
-        <h2>dashboard</h2>
+      <div className='dashboard'>
         <PhotoForm
           buttonText='post'
           onComplete={(photo) =>{
-            return this.props.userPhotoCreate(photo)
+            return this.props.photoCreate(photo)
             .catch(console.error)
           }}
             />
-        {this.props.userPhotos.map(photo =>
+        {this.props.photos.map(photo =>
           <PhotoItem key={photo._id} photo={photo} />
         )}
       </div>
@@ -36,13 +36,13 @@ class DashboardContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-  userProfile: state.profile,
-  userPhotos: state.photos,
+  profile: state.profile,
+  photos: state.photos,
 })
 
 let mapDispatchToProps = (dispatch) => ({
-  userPhotoCreate: (photo) => dispatch(photoActions.userPhotoCreateRequest(photo)),
-  userPhotosFetch: (photos) => dispatch(photoActions.userPhotosFetchRequest()),
+  photoCreate: (photo) => dispatch(photoActions.userPhotoCreateRequest(photo)),
+  photosFetch: (photos) => dispatch(photoActions.userPhotosFetchRequest()),
 })
 
 export default connect(

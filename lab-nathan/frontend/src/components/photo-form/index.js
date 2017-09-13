@@ -1,4 +1,5 @@
-import React from 'react'
+import './_photo-form.scss';
+import React from 'react';
 import * as util from '../../lib/utilities.js'
 
 class PhotoForm extends React.Component {
@@ -13,7 +14,6 @@ class PhotoForm extends React.Component {
   }
 
   handleChange(e){
-    console.log('event', e.target)
     let {name} = e.target
     if(name == 'description'){
       this.setState({description: e.target.value})
@@ -54,9 +54,10 @@ class PhotoForm extends React.Component {
           onChange={this.handleChange}
           />
 
-        <input
+        <textarea
           name='description'
           type='text'
+          placeholder='description'
           value={this.state.description}
           onChange={this.handleChange}
           />

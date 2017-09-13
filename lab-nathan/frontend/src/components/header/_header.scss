@@ -8,3 +8,7 @@ header {
   display: flex;
   align-items: center;
 }
+
+#logout-button {
+  margin-right: $gutter / 2;
+}

@@ -43,6 +43,7 @@ class ProfileForm extends React.Component {
   }
 
   render() {
+    console.log(this.state.preview);
     return (
       <form
         className='profile-form'

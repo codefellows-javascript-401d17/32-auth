@@ -5,7 +5,7 @@
   margin-left: $gutter / 2;
   font-size: 1.125rem;
   color: $primary-dark;
-  font-family: serif;
+  font-family: $font-family;
 
   & a {
     color: inherit;
